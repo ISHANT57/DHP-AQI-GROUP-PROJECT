@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Countries | AQI Dashboard</title>
+  <link rel="stylesheet" href="/static/css/enhanced_styles.css">
+  <link rel="stylesheet" href="/static/css/compare.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navbar for Compare page -->
+  <div class="top-navbar">
+    <div class="navbar-logo">
+      <img src="/static/img/logo.jpeg" alt="Dashboard Logo" class="navbar-logo-img">
+      <span>AQI Dashboard</span>
+    </div>
+    <div class="navbar-links">
+      <a href="/"><i class="fas fa-home"></i> Dashboard</a>
+      <a href="/city-view"><i class="fas fa-city"></i> City View</a>
+      <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1 class="highlight fade-in">📊 Compare Countries</h1>
+    <p class="scroll-animate">Welcome to the Compare Countries section of the AQI Dashboard. Explore different analyses, graphs, and rankings to understand the air quality situation globally.</p>
+
+    <div class="summary-grid scroll-animate">
+      <div class="summary-card">
+        <h3>📈 Trend Analysis</h3>
+        <p>Visualize how each country's air quality has changed over the years. Track progress or deterioration across different regions with our detailed yearly data.</p>
+        <a href="/trends" class="btn-primary">View Trends</a>
+      </div>
+
+      <div class="summary-card">
+        <h3>🖱️ Interactive Graphs</h3>
+        <p>Compare countries by selecting them to view their AQI trends side by side. Use our interactive visualization tools to identify patterns and relationships.</p>
+        <a href="/graphs" class="btn-primary">Open Graphs</a>
+      </div>
+
+      <div class="summary-card">
+        <h3>🥇 AQI Rankings</h3>
+        <p>Discover which countries have the highest or lowest AQI values this year. See how nations rank globally in terms of air quality performance.</p>
+        <a href="/ranking" class="btn-primary">View Rankings</a>
+      </div>
+
+      <div class="summary-card">
+        <h3>📅 Yearly Insights</h3>
+        <p>Track AQI data from 2018 to 2024 for yearly historical comparisons. Understand seasonal variations and long-term trends across different countries.</p>
+        <a href="/insights" class="btn-primary">Explore Insights</a>
+      </div>
+
+      <div class="summary-card">
+        <h3>📁 Exportable Reports</h3>
+        <p>Download comparison charts and data reports as PDFs or images. Create shareable content for research, education, or policy advocacy purposes.</p>
+        <a href="/export-data" class="btn-primary">Download Reports</a>
+      </div>
+
+      <div class="summary-card">
+        <h3>🌍 Map Visualization</h3>
+        <p>View AQI data on geographic maps for visual context. Explore how pollution levels correlate with geographical and population factors.</p>
+        <a href="/city-view" class="btn-primary">Open Map View</a>
+      </div>
+    </div>
+    
+    <div class="details-section scroll-animate">
+      <h2 class="highlight">Understanding AQI Comparison</h2>
+      <p>When comparing AQI values between countries, consider these important factors:</p>
+      
+      <ul>
+        <li><strong>Methodology:</strong> Different regions may use slightly different methods to calculate AQI values</li>
+        <li><strong>Monitoring Coverage:</strong> Some countries have more comprehensive monitoring networks than others</li>
+        <li><strong>Seasonal Variations:</strong> Air quality often varies significantly by season in many regions</li>
+        <li><strong>Regional Factors:</strong> Geography, climate, and urbanization greatly impact air quality measurements</li>
+        <li><strong>Time Periods:</strong> Ensure you're comparing data from the same time periods for accurate insights</li>
+      </ul>
+      
+      <p>Our comparison tools allow you to control for these variables to ensure you're making valid comparisons across different countries and regions.</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Scroll animations
+      const scrollElements = document.querySelectorAll(".scroll-animate");
+      
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+      };
+
+      const displayScrollElement = (element) => {
+        element.classList.add("visible");
+      };
+
+      const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+        });
+      };
+
+      // Initialize on load
+      handleScrollAnimation();
+      
+      // Add scroll event
+      window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+      });
+    });
+  </script>
+</body>
+</html>
